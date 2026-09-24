@@ -1,0 +1,77 @@
+:root{
+  --night:#24102e; --dusk:#4a2145; --blush:#f7c6d0; --peach:#ffb59a; --butter:#ffe29a; --sage:#8fbf9f; --paper:#fff4ea;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{color-scheme:dark;scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;min-height:100%}
+body{
+  background:radial-gradient(120% 80% at 50% 100%,var(--dusk),var(--night) 70%) fixed var(--night);
+  color:var(--paper);font-family:"Cormorant Garamond",Georgia,serif;font-size:20px;line-height:1.5;
+  overflow-x:hidden;
+}
+h1,h2{font-weight:500;font-style:italic;margin:0}
+.screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+.hidden{display:none!important}
+
+/* intro */
+#intro h1{font-size:clamp(2.4rem,9vw,4.2rem);line-height:1.05;max-width:12ch}
+#intro p{margin:14px 0 26px;opacity:.8;max-width:30ch}
+.field{display:flex;flex-direction:column;gap:12px;width:min(320px,100%)}
+input{font:inherit;font-size:1.1rem;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.07);color:var(--paper);text-align:center}
+input:focus-visible,button:focus-visible{outline:2px solid var(--butter);outline-offset:3px}
+input::placeholder{color:rgba(255,244,234,.5)}
+button.cta{font:inherit;font-style:italic;font-size:1.2rem;padding:12px 28px;border:0;border-radius:999px;background:var(--blush);color:var(--night);cursor:pointer;transition:transform .2s,background .2s}
+button.cta:hover{transform:translateY(-2px);background:var(--butter)}
+
+/* stage */
+#stage{padding-top:28px}
+#stage h2{font-size:clamp(1.8rem,6vw,2.6rem)}
+#hint{margin:6px 0 0;opacity:.75;min-height:1.5em;transition:opacity .4s}
+svg#bq{width:min(560px,100%);height:auto;max-height:68vh;margin-top:8px;overflow:visible}
+.fl{cursor:pointer;transform-box:fill-box;transform-origin:center;transform:scale(0);animation:bloom 1.1s cubic-bezier(.2,1.4,.4,1) forwards}
+.fl:hover .pt{filter:brightness(1.12)}
+.fl:focus-visible{outline:none}
+.fl:focus-visible .ctr{stroke:#fff;stroke-width:3}
+.fl.done .ctr{fill:#fff}
+@keyframes bloom{from{transform:scale(0) rotate(-40deg)}to{transform:scale(1) rotate(0)}}
+.stem{fill:none;stroke:var(--sage);stroke-width:5;stroke-linecap:round;stroke-dasharray:500;stroke-dashoffset:500;animation:grow 1.2s ease-out forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 6s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-.8deg)}to{transform:rotate(.8deg)}}
+
+/* note card */
+#note{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(20,6,26,.6);z-index:5}
+#note.on{display:flex}
+.card{background:var(--paper);color:#3a1a34;max-width:340px;width:100%;padding:30px 26px 22px;border-radius:6px;transform:rotate(-1.5deg);box-shadow:0 20px 60px rgba(0,0,0,.5);animation:pop .35s ease-out}
+@keyframes pop{from{transform:rotate(-4deg) scale(.85);opacity:0}}
+.card p{font-family:Caveat,"Segoe Script",cursive;font-size:1.7rem;line-height:1.25;margin:0 0 18px}
+.card button{font:inherit;font-style:italic;background:none;border:0;color:#a3436b;cursor:pointer;font-size:1.1rem}
+
+/* letter */
+#letter{max-width:520px}
+#letter .paper{background:var(--paper);color:#3a1a34;padding:34px 30px;border-radius:6px;text-align:left;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+#letter .paper p{font-family:Caveat,"Segoe Script",cursive;font-size:1.55rem;line-height:1.35;margin:0 0 14px}
+
+
+/* gallery */
+#gallery{justify-content:flex-start;padding-top:40px}
+#gallery h2{font-size:clamp(1.8rem,6vw,2.6rem)}
+#gallery .sub{opacity:.75;margin:6px 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:26px 20px;width:min(860px,100%);padding:6px 4px 20px}
+.pol{background:var(--paper);color:#3a1a34;padding:10px 10px 14px;border:0;border-radius:3px;box-shadow:0 12px 30px rgba(0,0,0,.4);cursor:pointer;font:inherit;transition:transform .25s;transform:rotate(var(--r))}
+.pol:hover,.pol:focus-visible{transform:rotate(0) scale(1.04);z-index:2}
+.pol .img{aspect-ratio:1/1;border-radius:2px;background:linear-gradient(135deg,var(--blush),var(--peach)) center/cover;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+.pol span{display:block;margin-top:10px;font-family:Caveat,"Segoe Script",cursive;font-size:1.25rem;line-height:1.15}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+button.ghost{font:inherit;font-style:italic;font-size:1.05rem;padding:10px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:var(--paper);cursor:pointer}
+button.ghost:hover{background:rgba(255,255,255,.1)}
+#lb{position:fixed;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:24px;background:rgba(20,6,26,.88);z-index:6}
+#lb.on{display:flex}
+#lb .big{max-width:min(92vw,640px);max-height:70vh;width:100%;aspect-ratio:1/1;border-radius:4px;background:linear-gradient(135deg,var(--blush),var(--peach)) center/contain no-repeat;border:10px solid var(--paper);display:flex;align-items:center;justify-content:center;font-size:4rem}
+#lb p{font-family:Caveat,"Segoe Script",cursive;font-size:1.8rem;margin:0}
+
+/* falling petals */
+.petal{position:fixed;top:-30px;width:14px;height:18px;border-radius:70% 0 70% 0;opacity:.7;pointer-events:none;animation:fall linear forwards;z-index:1}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){.fl,.stem,.sway,.petal,.card{animation:none!important}.fl{transform:none}.stem{stroke-dashoffset:0}}

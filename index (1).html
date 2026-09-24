@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A bouquet for you</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="intro" class="screen">
+  <h1>I made you something</h1>
+  <p>It's small, it's from the heart, and it only takes a minute.</p>
+  <div class="field">
+    <input id="to" placeholder="sheena mae" autocomplete="off" aria-label="sheena mae">
+    <input id="from" placeholder="jme" autocomplete="off" aria-label="jme">
+    <button class="cta" id="open">Open it</button>
+  </div>
+</section>
+
+<section id="stage" class="screen hidden">
+  <h2 id="title"></h2>
+  <p id="hint">Tap each flower.</p>
+  <svg id="bq" viewBox="0 0 600 700" role="img" aria-label="A bouquet of seven flowers"></svg>
+  <button class="cta hidden" id="readLetter">Read my letter</button>
+</section>
+
+<section id="letter" class="screen hidden">
+  <div class="paper" id="paper"></div>
+  <div class="row" style="margin-top:24px"><button class="cta" id="toGallery">See our moments</button><button class="ghost" id="again">Back to the flowers</button></div>
+</section>
+
+<section id="gallery" class="screen hidden">
+  <h2>Little moments</h2>
+  <p class="sub">Tap a photo to see it bigger.</p>
+  <div class="grid" id="grid"></div>
+  <div class="row">
+    <button class="ghost" id="addPhotos">Add photos</button>
+    <button class="cta" id="backLetter">Back to my letter</button>
+  </div>
+  <input type="file" id="files" accept="image/*" multiple class="hidden">
+</section>
+
+<div id="lb" role="dialog" aria-modal="true"><div class="big" id="lbImg"></div><p id="lbCap"></p><button class="ghost" id="lbClose">Close</button></div>
+
+<div id="note" role="dialog" aria-modal="true"><div class="card"><p id="noteText"></p><button id="close">Close</button></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
